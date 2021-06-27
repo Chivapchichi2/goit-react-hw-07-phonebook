@@ -1,0 +1,14 @@
+.Section {
+  margin-top: 30px;
+}
+
+.Section:last-child {
+  padding-bottom: 30px;
+}
+
+h2 {
+  margin: 0 0 20px;
+  color: darkblue;
+  font-size: 3rem;
+  text-shadow: 3px -3px 3px rgba(76, 0, 255, 0.541);
+}

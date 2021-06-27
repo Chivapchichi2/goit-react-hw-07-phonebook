@@ -1,0 +1,11 @@
+.Container {
+  width: 1170px;
+  height: auto;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 15px;
+  padding-right: 15px;
+  background-color: lightgray;
+  background-image: url(https://png.pngtree.com/thumb_back/fw800/background/20210115/pngtree-vector-honeycomb-texture-background-2-image_528279.jpg);
+  background-size: cover;
+}

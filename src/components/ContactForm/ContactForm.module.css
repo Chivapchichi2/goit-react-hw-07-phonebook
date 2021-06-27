@@ -1,0 +1,62 @@
+.ContactForm {
+  width: 600px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  padding: 50px;
+  margin: 0 0 50px;
+  border: 1px solid darkblue;
+  border-radius: 5px;
+  box-shadow: 5px 5px 5px -5px rgba(1, 61, 178, 0.6);
+}
+
+.label {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 10px;
+  font-weight: 700;
+  font-size: 1.5rem;
+  color: darkblue;
+}
+
+.input {
+  margin-top: 10px;
+  border-radius: 5px;
+  padding-left: 10px;
+  border-color: darkblue;
+  background-color: transparent;
+  color: darkblue;
+  box-shadow: 5px 5px 5px -5px rgba(1, 61, 178, 0.6);
+  transition: all 500ms cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
+.input:focus,
+.input:hover {
+  background-color: rgba(0, 0, 139, 0.5);
+  color: #fff;
+  transform: scale(1.02);
+}
+
+.input:focus.input::placeholder,
+.input:hover.input::placeholder {
+  color: #fff;
+}
+
+.button {
+  margin-top: 30px;
+  padding: 5px 15px;
+  border-radius: 10px;
+  border-color: darkblue;
+  color: darkblue;
+  font-weight: 500;
+  transition: all 500ms cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
+.button:hover,
+.button:focus {
+  color: #fff;
+  background-color: darkblue;
+  box-shadow: 5px 5px 5px -5px rgba(1, 61, 178, 0.6);
+  transform: scale(1.1);
+}
