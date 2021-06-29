@@ -1,32 +1,28 @@
 import { createAction } from '@reduxjs/toolkit';
-import axios from 'axios';
 
-axios.defaults.baseURL = 'http://localhost:4040';
+const fetchItemsRequest = createAction('contacts/fetchItemsRequest');
+const fetchItemsSuccess = createAction('contacts/fetchItemsSuccess');
+const fetchItemsError = createAction('contacts/fetchItemsError');
 
-const addContact =
-  ({ name, number }) =>
-  dispatch => {
-    const contact = { name, number };
-    dispatch({ type: 'contacts/addItemRequest' });
-    axios
-      .post('/contacts', contact)
-      .then(({ data }) =>
-        dispatch({ type: 'contacts/addItemSuccess', payload: data }),
-      )
-      .catch(error =>
-        dispatch({ type: 'contacts/addItemError', payload: error }),
-      );
-  };
-// const addContact = createAction('contacts/addItem', ({ name, number }) => ({
-//   payload: {
-//     id: uid(),
-//     name,
-//     number,
-//   },
-// }));
+const addItemRequest = createAction('contacts/addItemRequest');
+const addItemSuccess = createAction('contacts/addItemSuccess');
+const addItemError = createAction('contacts/addItemError');
 
-const deleteContact = createAction('contacts/deleteItem');
+const deleteItemRequest = createAction('contacts/deleteItemRequest');
+const deleteItemSuccess = createAction('contacts/deleteItemSuccess');
+const deleteItemError = createAction('contacts/deleteItemError');
 
 const changeFilter = createAction('contacts/changeFilter');
 
-export default { addContact, deleteContact, changeFilter };
+export default {
+  fetchItemsRequest,
+  fetchItemsSuccess,
+  fetchItemsError,
+  addItemRequest,
+  addItemSuccess,
+  addItemError,
+  deleteItemRequest,
+  deleteItemSuccess,
+  deleteItemError,
+  changeFilter,
+};

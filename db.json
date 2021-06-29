@@ -1,9 +1,19 @@
 {
   "contacts": [
     {
-      "name": "pasha",
+      "name": "chivapchichi",
       "number": "123 433",
       "id": 1
+    },
+    {
+      "name": "wq",
+      "number": "123 433",
+      "id": 2
+    },
+    {
+      "name": "qqeqq",
+      "number": "123 433",
+      "id": 3
     }
   ]
 }

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import ContactForm from './ContactForm';
@@ -8,8 +8,11 @@ import Filter from './Filter';
 import Header from './Header';
 import Notification from './Notification';
 import Section from './Section/Section';
+import contactsOperations from '../redux/contacts/contacts-operations';
 
-const App = ({ filter, items }) => {
+const App = ({ filter, items, dispatch, loading }) => {
+  useEffect(() => dispatch(contactsOperations.fetchContacts()), []);
+
   const cleanFilter = filter.toLowerCase();
   const filteredContacts = items
     .filter(item => item.name.includes(cleanFilter))
@@ -21,6 +24,7 @@ const App = ({ filter, items }) => {
         <ContactForm />
       </Section>
       <Section title="Contacts">
+        {loading && <h2>Loading...</h2>}
         {items[0] ? <Filter /> : <Notification message="No contacts added" />}
         {items[0] && !filteredContacts[0] && (
           <Notification message="No contact found" />
@@ -34,11 +38,14 @@ const App = ({ filter, items }) => {
 App.propTypes = {
   filter: PropTypes.string.isRequired,
   items: PropTypes.arrayOf(PropTypes.any).isRequired,
+  dispatch: PropTypes.func.isRequired,
+  loading: PropTypes.bool.isRequired,
 };
 
 const mapStateToProps = state => ({
   items: state.contacts.items,
   filter: state.contacts.filter,
+  loading: state.contacts.loading,
 });
 
 export default connect(mapStateToProps)(App);
