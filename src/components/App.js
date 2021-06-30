@@ -9,6 +9,7 @@ import Header from './Header';
 import Notification from './Notification';
 import Section from './Section/Section';
 import contactsOperations from '../redux/contacts/contacts-operations';
+import contactsSelectors from '../redux/contacts/contacts-selectors';
 
 const App = ({ filter, items, dispatch, loading }) => {
   useEffect(() => dispatch(contactsOperations.fetchContacts()), []);
@@ -43,9 +44,9 @@ App.propTypes = {
 };
 
 const mapStateToProps = state => ({
-  items: state.contacts.items,
-  filter: state.contacts.filter,
-  loading: state.contacts.loading,
+  items: contactsSelectors.getContactsItems(state),
+  filter: contactsSelectors.getContactsFilter(state),
+  loading: contactsSelectors.getContactsLoading(state),
 });
 
 export default connect(mapStateToProps)(App);
